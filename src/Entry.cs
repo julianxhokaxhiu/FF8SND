@@ -75,7 +75,7 @@ namespace FF8SND
                 fileDat.Read(audioList[idx].Data, 0, audioList[idx].Data.Length);
 
                 // Finish saving some last info
-                audioList[idx].riffChunk.Size = (uint)(audioList[idx].riffChunk.Id.Length + Marshal.SizeOf(typeof(FormatChunk)) + Marshal.SizeOf(typeof(DataChunk)) + audioList[idx].dataChunk.Size);
+                audioList[idx].riffChunk.Size = (uint)(Marshal.SizeOf(typeof(FormatChunk)) + Marshal.SizeOf(typeof(DataChunk)) + audioList[idx].dataChunk.Size - Marshal.SizeOf(typeof(RiffChunk)));
                 if (fmtHeader.Loop > 0) audioList[idx].riffChunk.Size += (uint)(Marshal.SizeOf(typeof(LoopChunk)));
             }
 
