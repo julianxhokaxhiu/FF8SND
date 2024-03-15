@@ -28,8 +28,8 @@ namespace FF8SND
             if (ret != null)
             {
                 FF8Dir = ret.GetValue("AppPath") + @"\Data\Sound";
+                ret.Close();
             }
-            ret.Close();
         }
 
         private bool parseAudioFile(string audioDat, string audioFmt)
